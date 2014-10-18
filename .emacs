@@ -1,3 +1,13 @@
+(require 'package)
+(add-to-list 'package-archives
+  '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
+;; org-mode
+(add-to-list 'load-path "~/elisp/org-mode/lisp")
+(setq org-directory "~/org/")
+(setq org-default-notes-file (concat org-directory "/notes.org"))
+(setq org-agenda-files (list "~/org"))
+
 ;; Show column-number in the mode line
 (column-number-mode 1)
 
@@ -39,6 +49,10 @@
 (global-set-key (kbd "C-c r") 'R)
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key [f11] 'toggle-fullscreen)
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c b") 'org-iswitchb)
 
 ;; R settings
 (setq inferior-R-args "--no-restore-history --no-save ")
